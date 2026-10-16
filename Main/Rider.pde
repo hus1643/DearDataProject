@@ -1,13 +1,15 @@
 class Rider{
   // rider wearing a helmet or not
-  boolean helmet;
-  String sex;
+  char helmet;
+  char sex;
+  // e-hire,e-personal,personal
+  PVector type;
   // pavement or road
-  String where;
+  char where;
   // time of day
   int hour;
   
-  Rider(int hour,String sex,boolean helmet,String where){
+  Rider(int hour,char sex,char helmet,char where){
     this.hour = hour;
     this.sex = sex;
     this.helmet = helmet;

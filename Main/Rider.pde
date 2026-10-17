@@ -4,18 +4,15 @@ class Rider{
   char sex;
   // e-bike,regular
   char type;
-  // pavement or road
-  char where;
   // time of day
   int hour;
-  float x,y;
+  PVector pos;
   
-  Rider(int hour,char type,char sex,char helmet,char where){
+  Rider(int hour,char type,char sex,char helmet){
     this.hour = hour;
     this.type = type;
     this.sex = sex;
     this.helmet = helmet;
-    this.where = where;
   }
   // display the rider
   void display(){

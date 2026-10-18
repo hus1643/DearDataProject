@@ -1,6 +1,6 @@
 void setup() {
   size(800, 400);
-  strokeWeight(3);
+  //strokeWeight(3);
 }
 
 void draw() {
@@ -9,4 +9,13 @@ void draw() {
   // road
   line(0, 50, width, 50);
   line(0, height-50, width, height-50);
+  bike();
+  
+}
+
+void bike(){
+ line(100,200,150,200);
+ circle(100,200,25); 
+ circle(150,200,25); 
+ 
 }

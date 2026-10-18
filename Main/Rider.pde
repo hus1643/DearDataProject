@@ -18,8 +18,5 @@ class Rider{
   void display(){
     // show rider
   }
-  void move(){
-    // move rider
-  }
   
 }

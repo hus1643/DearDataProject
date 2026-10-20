@@ -1,0 +1,34 @@
+Time,Type ,Sex,Helmet
+12,Regular,M,N
+12,Regular,F,N
+12,Regular,M,N
+12,Regular,M,Y
+13,Regular,M,N
+13,Regular,F,N
+14,Regular,M,N
+14,Regular,M,N
+17,Electric,M,Y
+10,Regular,F,Y
+10,Regular,M,Y
+11,Regular,F,Y
+13,Regular,M,Y
+13,Regular,M,Y
+13,Electric,M,Y
+13,Electric,M,N
+15,Regular,M,Y
+16,Regular,M,Y
+16,Regular,F,Y
+8,14 Regular,F,Y
+8,23 Regular,M,Y
+8,2 Regular,M,N
+8,2 Regular,F,N
+8,Electric,M,N 
+16,2 Regular,M,N
+16,7 Regular,M,Y
+16,5 Regular,F,N
+16,Electric,M,Y
+7,Regular,F,Y
+8,25 Regular,M,Y
+8,11 Regular,F,Y
+8,4 Regular,M,N
+8,6 Regular,F,N

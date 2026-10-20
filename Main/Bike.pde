@@ -24,10 +24,12 @@ class Bike {
     circle(x+diameter*2, y, diameter);
     circle(x, y, diameter/5);
     circle(x+diameter*2, y, diameter/5);
+    PVector rims = new PVector(x+diameter*2,y);
+    drawSpoke(rims,diameter/2);
 
-    //stroke(255, 0, 0);
-    //line(x-diameter/2, y+50, x+50+diameter/2, y+50); -> wheel base
-    stroke(0);
+      //stroke(255, 0, 0);
+      //line(x-diameter/2, y+50, x+50+diameter/2, y+50); -> wheel base
+      stroke(0);
 
     //seat
     line(x+diameter-(diameter/4), y, x, y-diameter);
@@ -36,8 +38,22 @@ class Bike {
     circle(x+diameter-(diameter/4), y, diameter/2);
     circle(x+diameter-(diameter/4), y, diameter/4);
   }
-  void move(){
+
+  void drawSpoke(PVector centre, float r) {
+    PVector core = new PVector(
+      (centre.x) + r*cos(0.0f),
+      (centre.y) + r*sin(0.0f)
+      );
+    float angle = PI/4;
+    for (float theta = angle; theta <= 2*PI; theta+=angle) {
+      PVector spoke = new PVector(
+        centre.x + r*cos(theta),
+        centre.y - r*sin(theta)
+        );
+      line(core.x, core.y, spoke.x, spoke.y);
+    }
+  }
+  void move() {
     this.pos.x += 1;
   }
-  
 }

@@ -20,11 +20,16 @@ void draw() {
   randomSeed(1);
 
   // road
-  line(0, 30, width, 30);
-  line(0, height-30, width, height-30);
+  //line(0, 30, width, 30);
+  //line(0, height-30, width, height-30);
 
   for (int i = 0; i < bikes.length; i++) {
     bikes[i].showRegularBike();
     bikes[i].move();
+  }
+  
+  // time interval guidelines
+  for(int i = 30; i < height; i+=50){
+    line(0,i,width,i);
   }
 }

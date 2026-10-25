@@ -1,6 +1,6 @@
 class Bike {
   PVector pos;
-  float bikeSize = 30;
+  float bikeSize = 10;
   //char type;
 
   Bike(PVector pos) {

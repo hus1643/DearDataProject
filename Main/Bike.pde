@@ -48,8 +48,10 @@ class Bike {
       (centre.x-r) + r*cos(0.0f),
       (centre.y) + r*sin(0.0f)
       );
+
     float angle = PI/4;
     // draw lines from the core of circle to the edge of the wheel
+
     for (float theta = angle; theta <= 2*PI+angle; theta+=angle) {
       PVector spoke = new PVector(
         centre.x + r*cos(theta),
@@ -58,13 +60,14 @@ class Bike {
       line(core.x, core.y, spoke.x, spoke.y);
     }
   }
-
+  // move
   void move() {
     float dx = random(1.4, 2.5);
     this.pos.x += dx;
   }
+  
   // todo
-  void showLadiesBike(){
+  void showLadiesBike() {
     // find the intersection of the lines bike frame (middle) and bike seat
     // create a curve from that point to the hand bar
   }

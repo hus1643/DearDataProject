@@ -1,10 +1,18 @@
 class Bike {
   PVector pos;
-  float bikeSize = 10;
-  //char type;
+  float bikeSize = 30;
+  int hour;
+  String type;
+  char sex;
+  char helmet;
+  color colour;
 
-  Bike(PVector pos) {
+  Bike(PVector pos,int hour,String type,char sex,char helmet) {
     this.pos  = pos;
+    this.hour = hour;
+    this.type = type;
+    this.sex = sex;
+    this.helmet = helmet;
   }
 
   void showRegularBike() {

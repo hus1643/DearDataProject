@@ -1,21 +1,21 @@
 class Bike {
   PVector pos;
-  float bikeSize = 30;
-  int hour;
-  String type;
-  char sex;
-  char helmet;
-  color colour;
-
-  Bike(PVector pos,int hour,String type,char sex,char helmet) {
+  float bikeSize = 50;
+  //int hour;
+  //String type;
+  //char sex;
+  //char helmet;
+  //color colour;
+  // int hour,String type,char sex,char helmet
+  Bike(PVector pos) {
     this.pos  = pos;
-    this.hour = hour;
-    this.type = type;
-    this.sex = sex;
-    this.helmet = helmet;
+    //this.hour = hour;
+    //this.type = type;
+    //this.sex = sex;
+    //this.helmet = helmet;
   }
 
-  void showRegularBike() {
+  void showMensBike(){
     float diameter = this.bikeSize;
     float x = this.pos.x;
     float y = this.pos.y;
@@ -73,10 +73,55 @@ class Bike {
     float dx = random(1.4, 2.5);
     this.pos.x += dx;
   }
-  
-  // todo
+
+  //// todo
   void showLadiesBike() {
-    // find the intersection of the lines bike frame (middle) and bike seat
-    // create a curve from that point to the hand bar
+    //  // find the intersection of the lines bike frame (middle) and bike seat
+    //  // create a curve from that point to the hand bar
+    float diameter = this.bikeSize;
+    float x = this.pos.x;
+    float y = this.pos.y;
+    float barHeight = 1.5;
+    //line(x, y, x+50, y);
+    // frame
+    //line(x, y, x+diameter*barHeight, y-diameter*barHeight); // middle
+    line(x+diameter*2, y, x+diameter*barHeight, y-diameter*barHeight); // right
+
+    // rear wheel
+    PVector rearWheel = new PVector(x, y);
+    circle(rearWheel.x, rearWheel.y, diameter);
+    circle(rearWheel.x, rearWheel.y, diameter/5);
+    drawSpoke(rearWheel, diameter/2);
+    //front wheel
+    circle(x+diameter*2, y, diameter);
+    PVector frontWheel = new PVector(x+diameter*2, y);
+    circle(frontWheel.x, frontWheel.y, diameter/5);
+    drawSpoke(frontWheel, diameter/2);
+    noFill();
+
+    float seatX = x;
+    float seatY = y - diameter;
+    // handlebars
+    float handleX = x + diameter * barHeight;
+    float handleY = y - diameter * barHeight;
+    bezier(
+      seatX, seatY,
+      seatX + diameter+10, seatY + 50, // control point 1
+      handleX - diameter, handleY + 50, // control point 2
+      handleX, handleY
+      );
+    fill(255);
+    stroke(0);
+    
+    // handbar
+    rect(x+diameter*barHeight, y-diameter*barHeight, diameter/2, diameter/10);
+
+    //seat
+    line(x+diameter-(diameter/4), y, x, y-diameter);
+    ellipse(x, y-diameter, diameter/2, diameter/4);
+    //pedals
+    circle(x+diameter-(diameter/4), y, diameter/2);
+    circle(x+diameter-(diameter/4), y, diameter/4);
+    // curved step-through tube
   }
 }

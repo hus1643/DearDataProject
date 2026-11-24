@@ -1,37 +1,39 @@
-PVector pos, pos2; //<>//
+PVector pos; //<>//
 PVector initBike;
-Bike []bikes,tokens;
-String[] lines;
+Bike []bikes;
+String[] lines, tokens;
+// raod markings
+float roadTop = 85, roadMid = 345, roadBot = 540;
+
 void setup() {
   size(800, 400);
-  frameRate(30);
-  pos2 = new PVector(200, 300);
+  frameRate(60);
   rectMode(CENTER);
-  
-  // data parse
+  // data parsing
   lines = loadStrings("data.csv");
-  printArray(lines);
-  println(lines.length-1);
-  printArray(tokens);
-  
-  bikes = new Bike[1];
-  // Bike(PVector pos,int hour,String type,char sex,char helmet)
-  for(int i = 0; i < bikes.length; i++){
-    pos = new PVector(50, random(100,height-100));
-    bikes[i] = new Bike(pos);
+  bikes = new Bike[lines.length-1];
+
+  for (int i = 1; i < lines.length-1; i++) {
+    tokens =split(lines[i], ',');
+    int hour = int(trim(tokens[0]));
+    String type = trim(tokens[1]);
+    char sex = tokens[2].charAt(0);
+    char helmet = tokens[3].charAt(0);
+    boolean isRush = (hour == 8 || hour == 16);
+    float laneY = 0;
+    // if rush drawt the bikes in the rush zone
+    if (isRush) {
+      laneY = random(roadTop+48, roadMid- 22);
+    } else {
+      laneY = random(roadMid+52, roadBot- 22);
+    }
+    pos = new PVector(random(-width*1.8,width),laneY);
+    bikes[i-1] = new Bike(pos,hour,type,sex,helmet);
+    
   }
 }
 
 void draw() {
   background(230);
-  randomSeed(1);
-
-  // road
-  line(0, 30, width, 30);
-  line(0, height-30, width, height-30);
-    for (int i = 0; i < bikes.length; i++) {
-    bikes[i].showMensBike();
-    //bikes[i].showLadiesBike();
-    bikes[i].move();
-  }
+  randomSeed(42);
 }

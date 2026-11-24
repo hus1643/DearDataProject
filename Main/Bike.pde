@@ -1,18 +1,18 @@
 class Bike {
   PVector pos;
   float bikeSize = 50;
-  //int hour;
-  //String type;
-  //char sex;
-  //char helmet;
-  //color colour;
-  // int hour,String type,char sex,char helmet
-  Bike(PVector pos) {
+  int hour;
+  String type;
+  char sex;
+  char helmet;
+  color colour;
+  
+  Bike(PVector pos,int hour,String type,char sex,char helmet) {
     this.pos  = pos;
-    //this.hour = hour;
-    //this.type = type;
-    //this.sex = sex;
-    //this.helmet = helmet;
+    this.hour = hour;
+    this.type = type;
+    this.sex = sex;
+    this.helmet = helmet;
   }
 
   void showMensBike(){
@@ -37,11 +37,7 @@ class Bike {
     PVector frontWheel = new PVector(x+diameter*2, y);
     circle(frontWheel.x, frontWheel.y, diameter/5);
     drawSpoke(frontWheel, diameter/2);
-
-    //stroke(255, 0, 0);
-    //line(x-diameter/2, y+50, x+50+diameter/2, y+50); -> wheel base
     stroke(0);
-
     //seat
     line(x+diameter-(diameter/4), y, x, y-diameter);
     ellipse(x, y-diameter, diameter/2, diameter/4);
@@ -82,9 +78,7 @@ class Bike {
     float x = this.pos.x;
     float y = this.pos.y;
     float barHeight = 1.5;
-    //line(x, y, x+50, y);
     // frame
-    //line(x, y, x+diameter*barHeight, y-diameter*barHeight); // middle
     line(x+diameter*2, y, x+diameter*barHeight, y-diameter*barHeight); // right
 
     // rear wheel
